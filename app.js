@@ -5,7 +5,7 @@ const router = require("./routes")
 
 
 app.use(router);
-
+console.log("test")
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
