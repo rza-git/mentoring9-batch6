@@ -21,6 +21,7 @@ class ProductController {
                     ON products.id = product_stores.product_id
                 INNER JOIN stores
                     ON stores.id = product_stores.store_id
+                ${filterStr}
             `
 
             const dataCount = await pool.query(countSQL)
@@ -252,7 +253,7 @@ const filterOption = (params) => {
         
         const {store_id, min_price, max_price, q} = params;
 
-        let queryString = ""
+        let queryString = "WHERE "
 
         let filterArray = [];
         
